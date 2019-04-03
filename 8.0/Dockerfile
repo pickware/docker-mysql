@@ -13,7 +13,8 @@ RUN apt-get update \
 RUN echo "de_DE.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 RUN echo "\
 [mysqld]\n\
-default-authentication-plugin=mysql_native_password" >> /etc/my.cnf
+default-authentication-plugin=mysql_native_password\n\
+group_concat_max_len=320000" >> /etc/my.cnf
 ENV LANG de_DE.UTF-8
 
 CMD ["mysqld", "--sql-mode=", "--character-set-server=utf8", "--collation-server=utf8_general_ci"]
