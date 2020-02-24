@@ -2,21 +2,5 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'eu.gcr.io/shopware-179114/mysql:5.7', '.']
     dir: '5.7'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/shopware-179114/mysql:8.0', '.']
-    dir: '8.0'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/shopware-179114/mysql:mariadb-10.2.17', '.']
-    dir: 'mariadb-10.2.17'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/shopware-179114/mysql:mariadb-10.2.23', '.']
-    dir: 'mariadb-10.2.23'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/shopware-179114/mysql:mariadb-latest', '.']
-    dir: 'mariadb-latest'
 images:
   - 'eu.gcr.io/shopware-179114/mysql:5.7'
-  - 'eu.gcr.io/shopware-179114/mysql:8.0'
-  - 'eu.gcr.io/shopware-179114/mysql:mariadb-10.2.17'
-  - 'eu.gcr.io/shopware-179114/mysql:mariadb-10.2.23'
-  - 'eu.gcr.io/shopware-179114/mysql:mariadb-latest'
