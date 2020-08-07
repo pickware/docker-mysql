@@ -1,4 +1,4 @@
-FROM mariadb:10.2.23
+FROM mariadb:10.2.23@sha256:af57a388784d08cd2d4f054fabfc53aa9144a961a3a1be8067a5cf9443d01646
 
 ENV DEBIAN_FRONTEND noninteractive
 
