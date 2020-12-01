@@ -1,4 +1,4 @@
-FROM mariadb:latest@sha256:49f263b3e01dcefc7bad4fcebde09f64d523a6b1b349ca6b30d962a1d6832e2c
+FROM mariadb:latest@sha256:be0069ebc09c00f5ff0b1900c5df05eb201cc01d3df4ab7828d26d38fae81654
 
 ENV DEBIAN_FRONTEND noninteractive
 
