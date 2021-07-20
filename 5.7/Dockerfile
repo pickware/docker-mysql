@@ -1,4 +1,4 @@
-FROM mysql:5.7.34@sha256:a682e3c78fc5bd941e9db080b4796c75f69a28a8cad65677c23f7a9f18ba21fa
+FROM mysql:5.7.35@sha256:956e11ac581cad9ac8747a9a1d61b8ffcfa6845e0f23bdbab6ba20a2ad792cbf
 
 ENV DEBIAN_FRONTEND noninteractive
 
