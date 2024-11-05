@@ -1,12 +1,24 @@
-FROM mysql:8.0.28@sha256:92d27b8222bbcf53bc42c70ca7cd1010d6c0527efc61f14980ce77c50932bef4
+FROM mysql:8.0.40-bookworm@sha256:49b84fc5916192e766f6879127d4d871e7101e73bd15ca63df4c1d5ba6d08946
 
 ENV DEBIAN_FRONTEND noninteractive
 
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get update \
- && apt-get install --no-install-recommends -y \
+ARG MYSQL_APT_CONFIG_DEB_URL='https://dev.mysql.com/get/mysql-apt-config_0.8.33-1_all.deb'
+ARG MYSQL_APT_CONFIG_DEB_SHA256='sha256:455ec3690765cff58a4123ba498921fb58fb76c46465e9659180848e997452b6'
+
+ADD --checksum=$MYSQL_APT_CONFIG_DEB_SHA256 $MYSQL_APT_CONFIG_DEB_URL /root/mysql-apt-config.deb
+
+RUN # mysql-apt-config fails if this directory does not already exist: \
+    mkdir -p /etc/apt/sources.list.d \
+    && dpkg -i /root/mysql-apt-config.deb \
+    && rm /root/mysql-apt-config.deb \
+    && apt '--option=APT::Acquire::Retries="3"' update \
+    && apt '--option=APT::Acquire::Retries="3"' install --no-install-recommends -y locales \
+   && rm -rf /var/lib/apt/lists/*
+RUN apt update \
+ && apt install --no-install-recommends -y \
   locales \
  && rm -rf /var/lib/apt/lists/*
 
