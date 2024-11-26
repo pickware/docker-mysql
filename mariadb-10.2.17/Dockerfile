@@ -2,7 +2,7 @@ FROM mariadb:10.2.17@sha256:18340db1515f2ab4a10936bed9ae1430a5367360c9a2400b77e5
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV TZ=Europe/Berlin
+ENV TZ=UTC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update \

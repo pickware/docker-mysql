@@ -1,8 +1,8 @@
-FROM mysql:8.0.28@sha256:92d27b8222bbcf53bc42c70ca7cd1010d6c0527efc61f14980ce77c50932bef4
+FROM mysql:8.0.36-bookworm@sha256:fe968a89962f9d6bb594f7525bc1f61e0c61ff89500a41424899bcd7cf65a5c9
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV TZ=Europe/Berlin
+ENV TZ=UTC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update \
