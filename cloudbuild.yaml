@@ -1,10 +1,10 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/shopware-179114/mysql:5.7', '.']
+    args: ['build', '-t', 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:5.7', '.']
     dir: '5.7'
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/shopware-179114/mysql:8.0', '.']
-    dir: '8.0'  
+    args: ['build', '-t', 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:8.0', '.']
+    dir: '8.0'
 images:
-  - 'eu.gcr.io/shopware-179114/mysql:5.7'
-  - 'eu.gcr.io/shopware-179114/mysql:8.0'
+  - 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:5.7'
+  - 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:8.0'
