@@ -1,10 +1,13 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:5.7', '.']
-    dir: '5.7'
+  # This old MySQL versions cannot be built anymore. Existing image is still available in the Google Cloud
+  #  Artifact Repository.
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   args: ['build', '-t', 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:5.7', '.']
+  #   dir: '5.7'
+
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:8.0', '.']
     dir: '8.0'
 images:
-  - 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:5.7'
+  # - 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:5.7'
   - 'europe-west3-docker.pkg.dev/shopware-179114/sw6-demo-shops/mysql:8.0'
