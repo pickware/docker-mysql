@@ -5,12 +5,16 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:8.0', '.']
     dir: '8.0'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:mariadb-10.2.17', '.']
-    dir: 'mariadb-10.2.17'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:mariadb-10.2.23', '.']
-    dir: 'mariadb-10.2.23'
+
+  # These old mariadb versions cannot be built anymore. Existing images are still available in the Google Cloud
+  #  Artifact Repository.
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:mariadb-10.2.17', '.']
+  #   dir: 'mariadb-10.2.17'
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:mariadb-10.2.23', '.']
+  #   dir: 'mariadb-10.2.23'
+
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:mariadb-latest', '.']
     dir: 'mariadb-latest'
