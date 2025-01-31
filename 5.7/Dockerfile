@@ -48,4 +48,5 @@ RUN apt-get update \
 RUN echo "de_DE.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 ENV LANG de_DE.UTF-8
 
+USER mysql
 CMD ["mysqld", "--sql-mode=", "--character-set-server=utf8", "--collation-server=utf8_general_ci"]
