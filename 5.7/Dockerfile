@@ -48,5 +48,10 @@ RUN apt-get update \
 RUN echo "de_DE.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 ENV LANG de_DE.UTF-8
 
-USER mysql
-CMD ["mysqld", "--sql-mode=", "--character-set-server=utf8", "--collation-server=utf8_general_ci"]
+USER root
+# COPY set-mysql-password.sh /set-mysql-password.sh
+# RUN /set-mysql-password.sh
+
+#USER mysql
+COPY entrypoint.sh /home/mysql/entrypoint.sh
+ENTRYPOINT /home/mysql/entrypoint.sh
