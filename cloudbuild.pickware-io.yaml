@@ -1,7 +1,10 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:5.7', '.']
-    dir: '5.7'
+  # This old MySQL versions cannot be built anymore. Existing image is still available in the Google Cloud
+  #  Artifact Repository.
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:5.7', '.']
+  #   dir: '5.7'
+
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:8.0', '.']
     dir: '8.0'
@@ -19,6 +22,6 @@ steps:
     args: ['build', '-t', 'eu.gcr.io/pickware-io/mysql:mariadb-latest', '.']
     dir: 'mariadb-latest'
 images:
-  - 'eu.gcr.io/pickware-io/mysql:5.7'
+  # - 'eu.gcr.io/pickware-io/mysql:5.7'
   - 'eu.gcr.io/pickware-io/mysql:8.0'
   - 'eu.gcr.io/pickware-io/mysql:mariadb-latest'
